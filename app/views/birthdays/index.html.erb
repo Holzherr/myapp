@@ -1,0 +1,20 @@
+<h1>Listing birthdays</h1>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+  </thead>
+
+  <tbody>
+<%= render @birthdays %>
+  </tbody>
+</table>
+
+<br />
+
+<%= link_to 'New Birthday', new_birthday_path %>

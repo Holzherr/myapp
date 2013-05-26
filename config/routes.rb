@@ -1,4 +1,7 @@
 Myapp::Application.routes.draw do
+  resources :birthdays
+
+
   devise_for :users
 
   get 'about' => 'pages#about'
