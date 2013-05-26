@@ -1,3 +1,8 @@
+# My First App
+
+This is the sample application for learning to code by
+[+Nick Holzherr+] 
+
 == Welcome to Rails
 
 Rails is a web-application framework that includes everything needed to create
