@@ -1,8 +1,11 @@
 class BirthdaysController < ApplicationController
+  
+  before_filter :authenticate_user!
+
   # GET /birthdays
   # GET /birthdays.json
   def index
-    @birthdays = Birthday.all
+    @birthdays = current_user.birthdays.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +16,7 @@ class BirthdaysController < ApplicationController
   # GET /birthdays/1
   # GET /birthdays/1.json
   def show
-    @birthday = Birthday.find(params[:id])
+    @birthday = current_user.birthdays.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -24,7 +27,7 @@ class BirthdaysController < ApplicationController
   # GET /birthdays/new
   # GET /birthdays/new.json
   def new
-    @birthday = Birthday.new
+    @birthday = current_user.birthdays.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,13 +37,13 @@ class BirthdaysController < ApplicationController
 
   # GET /birthdays/1/edit
   def edit
-    @birthday = Birthday.find(params[:id])
+    @birthday = current_user.birthdays.find(params[:id])
   end
 
   # POST /birthdays
   # POST /birthdays.json
   def create
-    @birthday = Birthday.new(params[:birthday])
+    @birthday = current_user.birthdays.new(params[:birthday])
 
     respond_to do |format|
       if @birthday.save
@@ -56,7 +59,7 @@ class BirthdaysController < ApplicationController
   # PUT /birthdays/1
   # PUT /birthdays/1.json
   def update
-    @birthday = Birthday.find(params[:id])
+    @birthday = current_user.birthdays.find(params[:id])
 
     respond_to do |format|
       if @birthday.update_attributes(params[:birthday])
@@ -72,7 +75,7 @@ class BirthdaysController < ApplicationController
   # DELETE /birthdays/1
   # DELETE /birthdays/1.json
   def destroy
-    @birthday = Birthday.find(params[:id])
+    @birthday = current_user.birthdays.find(params[:id])
     @birthday.destroy
 
     respond_to do |format|
